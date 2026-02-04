@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Вход</title>
+    <style>
+     body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; text-align: center; }
+        h1 { color: #2c3e50; }
+        .nav { margin: 20px 0; font-size: 1.1em; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 8px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover { background: #2980b9; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #3498db;
+            color: #3498db;
+        }
+        .btn-outline:hover { background: #3498db; color: white; }
+        .greeting { font-size: 1.3em; margin: 30px 0; color: #27ae60; }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Вход в личный кабинет</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Войти</button>
+        </form>
+        <p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+    </div>
+</body>
+</html>
